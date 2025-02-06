@@ -56,7 +56,7 @@ const ProductDetailsPage = async ({ params: { productId } }: ParamsType) => {
         <div className="lg:col-span-2">
           <div className="border rounded-lg center p-5 overflow-hidden">
             <Image
-              src={"/images/product.jpg"}
+              src={`${photo ? photo : "images/product.jpg"}`}
               alt="Product photo"
               height={500}
               width={300}
@@ -70,7 +70,7 @@ const ProductDetailsPage = async ({ params: { productId } }: ParamsType) => {
               className="w-fit px-3 py-1 text-sm bg-green-500
              rounded-lg text-white font-medium"
             >
-              {brand}
+              {brand.label}
             </h4>
             <h1 className="text-2xl lg:text-4xl font-bold">{name}</h1>
             <p className="text-sm">

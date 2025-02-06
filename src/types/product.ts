@@ -22,7 +22,7 @@ export interface IProduct {
   stock: number;
   price: number;
   discountPrice: number;
-  brand: string;
+  brand: string | any;
   reviews: IReviews[];
   cell?: string;
   service?: Record<string, unknown>;

@@ -82,7 +82,35 @@ const CartView = () => {
             <div className="py-5 text-center">There is no items in cart!</div>
           )}
         </div>
-        {cartItems.length > 0 ? (
+        <div className="lg:col-span-2 h-fit">
+        <div className="bg-white w-full rounded-md border p-5">
+          <p className="border-b py-2 flex justify-between gap-1 items-center">
+            <span className="font-semibold">Subtotal:</span>
+            <span className="text-xl font-bold text-green-500">
+              ${subtotalValue}
+            </span>
+          </p>
+          <p className="border-b py-2 flex justify-between gap-1 items-center">
+            <span className="font-semibold">Delivery Charge:</span>
+            <span className="text-xl font-bold text-green-500">
+              {delivery > 0 ? delivery : "Free"}
+            </span>
+          </p>
+          <p className="mb-5 py-2 flex justify-between gap-1 items-center">
+            <span className="font-semibold">Total:</span>
+            <span className="text-xl font-bold text-green-500">${total}</span>
+          </p>
+          <Link href={`/billing-info`}>
+            <button
+              className="bg-green-500 hover:bg-green-600 rounded-md text-white w-full font-medium p-2 center gap-2 disabled:bg-green-200"
+              disabled={subtotal > 0 ? false : true}
+            >
+              Proceed to checkout <Banknote />
+            </button>
+          </Link>
+        </div>
+      </div>
+        {/* {cartItems.length > 0 ? (
           cartItems.map((item, i): any => (
             <div
               key={i}
@@ -126,36 +154,9 @@ const CartView = () => {
           ))
         ) : (
           <div className="py-5 text-center">There is no items in cart!</div>
-        )}
+        )} */}
       </div>
-      <div className="lg:col-span-2 h-fit">
-        <div className="bg-white w-full rounded-md border p-5">
-          <p className="border-b py-2 flex justify-between gap-1 items-center">
-            <span className="font-semibold">Subtotal:</span>
-            <span className="text-xl font-bold text-green-500">
-              ${subtotalValue}
-            </span>
-          </p>
-          <p className="border-b py-2 flex justify-between gap-1 items-center">
-            <span className="font-semibold">Delivery Charge:</span>
-            <span className="text-xl font-bold text-green-500">
-              {delivery > 0 ? delivery : "Free"}
-            </span>
-          </p>
-          <p className="mb-5 py-2 flex justify-between gap-1 items-center">
-            <span className="font-semibold">Total:</span>
-            <span className="text-xl font-bold text-green-500">${total}</span>
-          </p>
-          <Link href={`/billing-info`}>
-            <button
-              className="bg-green-500 hover:bg-green-600 rounded-md text-white w-full font-medium p-2 center gap-2 disabled:bg-green-200"
-              disabled={subtotal > 0 ? false : true}
-            >
-              Proceed to checkout <Banknote />
-            </button>
-          </Link>
-        </div>
-      </div>
+      
     </div>
   );
 };
